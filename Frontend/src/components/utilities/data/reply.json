@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "content": "This is Great!",
+      "author": "john",
+      "date": "2024-03-01",
+      "active": true,
+      "post": 1
+    },
+    {
+      "id": 2,
+      "content": "Wow, I love this!",
+      "author": "jane",
+      "date": "2024-03-01",
+      "active": true,
+      "post": 1
+    },
+    {
+      "id": 3,
+      "content": "Really!",
+      "author": "jack",
+      "date": "2024-03-01",
+      "active": true,
+      "post": 2
+    },
+    {
+      "id": 4,
+      "content": "Looking forward to it.",
+      "author": "jimmy",
+      "date": "2024-03-05",
+      "active": true,
+      "post": 2
+    }
+  ]
+}

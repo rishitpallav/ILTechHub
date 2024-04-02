@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "username": "rishit",
+      "email": "rishit@hawk.iit.edu",
+      "password": "rishit123",
+      "post": "11",
+      "active": true,
+      "grade": "A"
+    },
+    {
+      "username": "sahil",
+      "email": "sahil@hawk.iit.edu",
+      "password": "sahil123",
+      "post": "15",
+      "active": true,
+      "grade": "B"
+    },
+    {
+      "username": "john",
+      "email": "john@hawk.iit.edu",
+      "password": "john123",
+      "post": "1,4,10",
+      "active": true,
+      "grade": "A"
+    },
+    {
+      "username": "jack",
+      "email": "jack@hawk.iit.edu",
+      "password": "jack123",
+      "post": "27",
+      "active": true,
+      "grade": "C"
+    },
+    {
+      "username": "jimmy",
+      "email": "jimmy@hawk.iit.edu",
+      "password": "jimmy123",
+      "post": "28",
+      "active": true,
+      "grade": "A"
+    }
+  ]
+}

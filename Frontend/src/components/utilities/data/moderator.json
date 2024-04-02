@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "username": "mod1",
+      "email": "mod@iit.edu",
+      "password": "mod1",
+      "post": "",
+      "active": true
+    },
+    {
+      "username": "mod2",
+      "email": "mod2@iit.edu",
+      "password": "mod2",
+      "post": "",
+      "active": true
+    }
+  ]
+}

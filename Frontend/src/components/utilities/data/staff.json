@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "username": "jane",
+      "email": "jane@iit.edu",
+      "password": "jane123",
+      "post": "2,5,8,22,23,25,26",
+      "active": true,
+      "department": "Student Services"
+    },
+    {
+      "username": "matt",
+      "email": "matt@iit.edu",
+      "password": "matt123",
+      "post": "7,18,21",
+      "active": true,
+      "department": "Career Services"
+    },
+    {
+      "username": "bob",
+      "email": "bob@iit.edu",
+      "password": "bob123",
+      "post": "19,20",
+      "active": true,
+      "department": "Career Services"
+    },
+    {
+      "username": "laura",
+      "email": "laura@iit.edu",
+      "password": "laura123",
+      "post": "12,14,17,24",
+      "active": true,
+      "department": "Student Services"
+    },
+    {
+      "username": "miguel",
+      "email": "miguel@iit.edu",
+      "password": "miguel123",
+      "post": "13,16",
+      "active": true,
+      "department": "Library"
+    }
+  ]
+}

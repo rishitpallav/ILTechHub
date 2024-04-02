@@ -1,0 +1,11 @@
+{
+  "data": [
+    {
+      "username": "admin",
+      "password": "admin",
+      "email": "admin@gmail.com",
+      "post": "",
+      "active": true
+    }
+  ]
+}

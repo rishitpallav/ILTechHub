@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "username": "dave",
+      "email": "dave@iit.edu",
+      "password": "computer",
+      "post": "",
+      "active": true,
+      "department": "CS"
+    },
+    {
+      "username": "sam",
+      "email": "sam@iit.edu",
+      "password": "timeMachine",
+      "post": "",
+      "active": true,
+      "department": "Physics"
+    },
+    {
+      "username": "joe",
+      "email": "joe@iit.edu",
+      "password": "joe",
+      "post": "3,6,9",
+      "active": true,
+      "department": "Psycology"
+    }
+  ]
+}

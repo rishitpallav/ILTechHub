@@ -1,0 +1,274 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "GPT, a revolutionary new technology",
+      "content": "GPT is a revolutionary new technology that will change the world. It is a new type of AI that can understand and generate human language. It has the potential to revolutionize many industries, including healthcare, finance, and entertainment. GPT is the future, and we are excited to see what it can do.",
+      "user": "john",
+      "date": "2024-03-01",
+      "topic": "Technology",
+      "active": true
+    },
+    {
+      "id": 2,
+      "title": "Campus Community Day",
+      "content": "Join us for Campus Community Day on March 15th. There will be food, games, and fun for the whole family. The event is free and open to the public. We hope to see you there!",
+      "user": "jane",
+      "date": "2024-03-01",
+      "topic": "Campus",
+      "active": true
+    },
+    {
+      "id": 3,
+      "title": "New Study Shows the Benefits of Exercise",
+      "content": "A new study has found that regular exercise can help reduce the risk of heart disease, diabetes, and other chronic conditions. It can also improve mental health and overall well-being. Exercise is essential for a healthy lifestyle. It is also a great way to meet new people and have fun. Join us for a group fitness class today!",
+      "user": "joe",
+      "date": "2024-03-01",
+      "topic": "Health and Wellness",
+      "active": true
+    },
+    {
+      "id": 4,
+      "title": "The Future of Space Travel",
+      "content": "The future of space travel is looking bright. With new technologies and private companies entering the market, we are closer than ever to making space travel a reality for everyone. It is an exciting time to be alive! Join us for a discussion on the future of space travel at the library next week.",
+      "user": "john",
+      "date": "2024-03-02",
+      "topic": "Technology",
+      "active": true
+    },
+    {
+      "id": 5,
+      "title": "New Art Exhibit at the Museum",
+      "content": "Come see the new art exhibit at the museum. It features work from local artists and is sure to inspire and delight. The exhibit is free and open to the public. We hope to see you there! And don't forget to check out the museum's other exhibits and events. There is always something new and exciting happening at the museum.",
+      "user": "jane",
+      "date": "2024-03-02",
+      "topic": "Social",
+      "active": true
+    },
+    {
+      "id": 6,
+      "title": "The Benefits of Volunteering",
+      "content": "Volunteering is a great way to give back to your community and make a difference in the lives of others. It can also be a rewarding and fulfilling experience for the volunteer. Join us for a volunteer fair next month to learn about opportunities to get involved in your community. Together, we can make a difference!",
+      "user": "joe",
+      "date": "2024-03-02",
+      "topic": "Social",
+      "active": true
+    },
+    {
+      "id": 7,
+      "title": "The Future of Work",
+      "content": "The future of work is changing rapidly. With new technologies and remote work becoming more common, the way we work is evolving. You may need to adapt to new ways of working and learn new skills to stay competitive in the job market. Join us for a workshop on the future of work to learn more about the changing landscape and how you can prepare for the future.",
+      "user": "matt",
+      "date": "2024-03-03",
+      "topic": "Career Services",
+      "active": true
+    },
+    {
+      "id": 8,
+      "title": "New Study Shows the Benefits of Meditation",
+      "content": "A new study has found that regular meditation can help reduce stress, anxiety, and depression. It can also improve focus and overall well-being. Meditation is essential for a healthy lifestyle. It is also a great way to meet new people and have fun. Join us for a group meditation class today!",
+      "user": "jane",
+      "date": "2024-03-03",
+      "topic": "Health and Wellness",
+      "active": true
+    },
+    {
+      "id": 9,
+      "title": "The Future of Renewable Energy",
+      "content": "The future of renewable energy is looking bright. With new technologies and government incentives, we are closer than ever to making renewable energy a reality for everyone. It is an exciting time to be alive! Join us for a discussion on the future of renewable energy at the library next week.",
+      "user": "joe",
+      "date": "2024-03-03",
+      "topic": "Technology",
+      "active": true
+    },
+    {
+      "id": 10,
+      "title": "New Art Exhibit at the Museum",
+      "content": "Come see the new art exhibit at the museum. It features work from local artists and is sure to inspire and delight. The exhibit is free and open to the public. We hope to see you there! And don't forget to check out the museum's other exhibits and events. There is always something new and exciting happening at the museum. And don't forget to check out the museum's other exhibits and events. There is always something new and exciting happening at the museum.",
+      "user": "john",
+      "date": "2024-03-03",
+      "topic": "Social",
+      "active": false
+    },
+    {
+      "id": 11,
+      "title": "How to Write a Strong Research Paper",
+      "content": "Writing a research paper can be a daunting task, but with the right guidance, it can be a rewarding experience. This guide will provide tips on how to choose a topic, conduct research, develop a thesis statement, and write a clear and concise paper. It will also cover the importance of proper citation and formatting.",
+      "user": "rishit",
+      "date": "2024-03-08",
+      "topic": "Academic Resources",
+      "active": true
+    },
+    {
+      "id": 12,
+      "title": "Time Management Tips for Students",
+      "content": "Juggling classes, extracurricular activities, and a social life can be challenging. These time management tips will help you stay organized, prioritize your tasks, and avoid procrastination. Learn how to create a schedule, set realistic goals, and use your time effectively.",
+      "user": "laura",
+      "date": "2024-03-08",
+      "topic": "Academic Resources",
+      "active": true
+    },
+    {
+      "id": 13,
+      "title": "Online Resources for Research",
+      "content": "The internet is a valuable resource for students. There are many websites and databases that can help you find scholarly articles, books, and other credible sources of information. This guide will highlight some of the best online resources for research in various academic disciplines.",
+      "user": "miguel",
+      "date": "2024-03-08",
+      "topic": "Academic Resources",
+      "active": true
+    },
+    {
+      "id": 14,
+      "title": "How to Ace Your Next Exam",
+      "content": "Exams can be stressful, but with the right preparation, you can feel confident and perform your best. This guide will provide tips on how to study effectively, manage exam anxiety, and develop good test-taking strategies.",
+      "user": "laura",
+      "date": "2024-03-08",
+      "topic": "Academic Resources",
+      "active": true
+    },
+    {
+      "id": 15,
+      "title": "Writing Center Offers Free Tutoring",
+      "content": "The Writing Center offers free tutoring services to all students. Our tutors can help you with all stages of the writing process, from brainstorming ideas to revising your final draft. Don't hesitate to take advantage of this valuable resource!",
+      "user": "sahil",
+      "date": "2024-03-08",
+      "topic": "Academic Resources",
+      "active": true
+    },
+    {
+      "id": 16,
+      "title": "Learn a New Language with Online Courses",
+      "content": "Learning a new language can be a fun and rewarding experience. There are many online courses available that can help you get started. These courses can be a great way to supplement your classroom learning or learn a language independently.",
+      "user": "miguel",
+      "date": "2024-03-08",
+      "topic": "Academic Resources",
+      "active": true
+    },
+    {
+      "id": 17,
+      "title": "The Benefits of Study Groups",
+      "content": "Study groups can be a great way to review material, share ideas, and get support from your peers. This guide will provide tips on how to form a study group, set goals, and make the most of your study sessions.",
+      "user": "laura",
+      "date": "2024-03-08",
+      "topic": "Academic Resources",
+      "active": true
+    },
+    {
+      "id": 18,
+      "title": "Resume Writing Workshop",
+      "content": "Join us for a workshop on how to write a strong resume. This workshop will cover the basics of resume writing, including how to format your resume, highlight your skills and experience, and write a compelling cover letter. You will also have the opportunity to get feedback on your resume from our career counselors.",
+      "user": "matt",
+      "date": "2024-03-08",
+      "topic": "Career Services",
+      "active": true
+    },
+    {
+      "id": 19,
+      "title": "Career Fairs and Networking Events",
+      "content": "Attend upcoming career fairs and networking events to connect with potential employers. These events are a great way to learn about job openings, network with professionals in your field, and make a lasting impression. Check out the Career Services website for a list of upcoming events.",
+      "user": "bob",
+      "date": "2024-03-08",
+      "topic": "Career Services",
+      "active": true
+    },
+    {
+      "id": 20,
+      "title": "Internship Opportunities",
+      "content": "Internships are a valuable way to gain real-world experience and explore potential career paths. The Career Services office can help you find internship opportunities that match your skills and interests. Don't hesitate to schedule an appointment with a career counselor to learn more.",
+      "user": "bob",
+      "date": "2024-03-08",
+      "topic": "Career Services",
+      "active": true
+    },
+    {
+      "id": 21,
+      "title": "Career Counseling Appointments",
+      "content": "Schedule an appointment with a career counselor to discuss your career goals, explore different career options, and develop a career plan. Career counselors can also help you with your resume, cover letter, and job search strategies.",
+      "user": "matt",
+      "date": "2024-03-08",
+      "topic": "Career Services",
+      "active": true
+    },
+    {
+      "id": 22,
+      "title": "Upcoming Campus Events",
+      "content": "Check out the calendar of upcoming campus events! There are events for everyone, including lectures, workshops, performances, and social gatherings. Get involved in campus life and make the most of your college experience.",
+      "user": "jane",
+      "date": "2024-03-08",
+      "topic": "Campus",
+      "active": true
+    },
+    {
+      "id": 23,
+      "title": "Campus Clubs and Organizations",
+      "content": "There are hundreds of clubs and organizations on campus that cater to a variety of interests. Getting involved in a club or organization is a great way to meet new people, develop your skills, and give back to the community. Visit the Student Activities Center to learn more about clubs and organizations.",
+      "user": "jane",
+      "date": "2024-03-08",
+      "topic": "Campus",
+      "active": true
+    },
+    {
+      "id": 24,
+      "title": "Housing and Dining Options",
+      "content": "Learn about the various housing and dining options available on campus. You can choose from traditional residence halls, apartments, and off-campus housing. There are also a variety of dining options to suit your needs, including all-you-can-eat buffets, cafes, and grab-and-go options. Visit the Housing and Dining Services website for more information.",
+      "user": "laura",
+      "date": "2024-03-08",
+      "topic": "Campus",
+      "active": true
+    },
+    {
+      "id": 25,
+      "title": "Health and Wellness Resources",
+      "content": "Take care of your physical and mental health with the resources available on campus. There are fitness centers, counseling services, and health clinics to support your well-being. Don't hesitate to reach out for help if you need it.",
+      "user": "jane",
+      "date": "2024-03-08",
+      "topic": "Campus",
+      "active": true
+    },
+    {
+      "id": 26,
+      "title": "Student Discounts and Deals at LocalCommunityMall",
+      "content": "LocalCommunityMall offers a variety of student discounts and deals on clothing, electronics, food, and more. Take advantage of these special offers to save money and get the items you need. Don't forget to bring your student ID to receive the discount! Visit the LocalCommunityMall website for a list of participating stores.",
+      "user": "jane",
+      "date": "2024-03-08",
+      "topic": "Local Community Resources",
+      "active": true
+    },
+    {
+      "id": 27,
+      "title": "Join the LocalCommunityMall Rewards Program",
+      "content": "Hey everyone, I just read Jane's post about the student discounts at LocalCommunityMall. I wanted to let you know that you can also join the LocalCommunityMall Rewards Program to earn points on your purchases and receive exclusive offers. It's a great way to save money and get rewarded for shopping at LocalCommunityMall.",
+      "user": "jack",
+      "date": "2024-03-08",
+      "topic": "Local Community Resources",
+      "active": true
+    },
+    {
+      "id": 28,
+      "title": "FirstBuy Electronics Store Grand Opening",
+      "content": "Found a flyer for the grand opening of FirstBuy Electronics Store at Chicago Mall. They are offering special discounts and giveaways to celebrate the opening. I think they also have additional discounts for students. Let me know if anyone is interested in checking it out together!",
+      "user": "jimmy",
+      "date": "2024-03-08",
+      "topic": "Local Community Resources",
+      "active": true
+    },
+    {
+      "id": 29,
+      "title": "Chicago Cultural Festival",
+      "content": "The Chicago Cultural Festival is coming up next month. It's a great opportunity to experience the city's diverse culture through music, dance, food, and art. There will be performances, workshops, and activities for all ages. Don't miss out on this exciting event!",
+      "user": "jane",
+      "date": "2024-03-08",
+      "topic": "Culture",
+      "active": true
+    },
+    {
+      "id": 30,
+      "title": "IIT Cultural Festival",
+      "content": "The IIT Cultural Festival is on 15th March. It's a great opportunity to experience the university's diverse culture through music, dance, food, and art. There will be performances, workshops, and activities for all ages. Don't miss out on this exciting event!",
+      "user": "jane",
+      "date": "2024-03-08",
+      "topic": "Culture",
+      "active": true
+    }
+  ]
+}
