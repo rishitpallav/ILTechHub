@@ -29,6 +29,7 @@ class Utilities {
       staff: [],
       replies: [],
       currentUser: null,
+      ipJson: null,
     };
   }
 
@@ -667,6 +668,8 @@ class Utilities {
     });
     let ipJson = await ipData.json();
 
+    this.ipJson = ipJson;
+
     return fetch("http://localhost:4000/getOpenAISportEventRecommendations", {
       method: "POST",
       headers: {
@@ -685,6 +688,11 @@ class Utilities {
         console.error("Error:", error);
         return [];
       });
+  };
+
+  getUserLocation = () => {
+    console.log(this.ipJson.latitude, this.ipJson.longitude);
+    return [this.ipJson.latitude, this.ipJson.longitude];
   };
 }
 

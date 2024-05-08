@@ -6,7 +6,7 @@ const nodemailer = require("nodemailer");
 const OpenAI = require("openai");
 
 const openai = new OpenAI({
-  apiKey: "OPENAI-API-KEY",
+  apiKey: "OPENAI_API_KEY",
 });
 
 const app = express();
@@ -31,7 +31,7 @@ insertData = async () => {
     },
   });
 
-  console.log(body);
+  // console.log(body);
 };
 
 app.get("/insert", async (req, res) => {
@@ -49,13 +49,13 @@ app.get("/getData", async (req, res) => {
     },
   });
 
-  console.log(body.hits.hits);
+  // console.log(body.hits.hits);
   res.json(body.hits.hits);
 });
 
 app.post("/loginStudent", async (req, res) => {
   console.log("Login student");
-  console.log(req.body);
+  // console.log(req.body);
   const { username, password } = req.body;
 
   const body = await client.search({
@@ -80,7 +80,7 @@ app.post("/loginStudent", async (req, res) => {
     },
   });
 
-  console.log(body.hits.hits[0]._source);
+  // console.log(body.hits.hits[0]._source);
   if (body.hits.hits.length > 0) {
     res.status(200).json(body.hits.hits[0]._source);
   } else {
@@ -98,7 +98,7 @@ app.get("/fetchAllReplies", async (req, res) => {
     },
   });
 
-  console.log(body.hits.hits);
+  // console.log(body.hits.hits);
   res.json(body.hits.hits);
 });
 
@@ -115,7 +115,7 @@ app.get("/fetchAllPosts", async (req, res) => {
 
   console.log("In Node Post");
 
-  console.log(body.hits.hits);
+  // console.log(body.hits.hits);
   res.json(body.hits.hits);
 });
 
@@ -369,7 +369,7 @@ app.post("/generateReply", async (req, res) => {
   // });
 
   try {
-    openai.apiKey = "OPENAI-API-KEY";
+    openai.apiKey = "OPENAI_API_KEY";
     const message = [
       { role: "system", content: "You are a post replying emotional bot." },
       {
@@ -390,7 +390,7 @@ app.post("/generateReply", async (req, res) => {
       top_p: 1,
     });
 
-    console.log(completion.choices[0].message.content);
+    // console.log(completion.choices[0].message.content);
 
     res.json({
       reply: completion.choices[0].message.content,
@@ -403,30 +403,93 @@ app.post("/generateReply", async (req, res) => {
 app.post("/getOpenAISportEventRecommendations", async (req, res) => {
   const { ipJson } = req.body;
 
-  const apiKey = "OPENWEATHER-API-KEY";
+  const apiKey = "OPENWEATHERMAP_API_KEY";
   const responses = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${ipJson.latitude}&lon=${ipJson.longitude}&appid=${apiKey}`
   );
   weatherData = await responses.json();
   // console.log(weatherData.weather[0].main);
 
-  const searchResponse = await searchEventsInCity(ipJson.city);
+  const searchMusicalEventsResponse = await searchEventsInCity(
+    "Musical Concerts",
+    ipJson.latitude,
+    ipJson.longitude
+  );
+  const musicResponse = await openAIEventRecommendation(
+    searchMusicalEventsResponse,
+    weatherData
+  );
+
+  const searchRestaurantsResponse = await searchEventsInCity(
+    "Restaurants",
+    ipJson.latitude,
+    ipJson.longitude
+  );
+  const restaurantResponse = await openAIRestaurantRecommendation(
+    searchRestaurantsResponse,
+    weatherData
+  );
+
+  const searchSportEventsResponse = await searchSportEventsInCity(ipJson.city);
+
+  // console.log(searchSportEventsResponse.events_results[0].date);
+
+  const sportResponse = await openAISportEventsRecommendation(
+    searchSportEventsResponse,
+    weatherData
+  );
+
+  // console.log(sportResponse);
+  // console.log("music response", musicResponse);
+  // console.log("restaurant response", restaurantResponse);
+
+  // response = restaurantResponse;
+
+  const response = musicResponse
+    .concat(restaurantResponse)
+    .concat(sportResponse);
 
   // console.log("search Response", searchResponse.events_results);
-  const response = await openAIEventRecommendation(searchResponse, weatherData);
 
-  console.log(response);
+  // console.log(response);
 
   res.json({
     data: response,
+    // data: [],
   });
 });
 
-async function searchEventsInCity(city) {
+// async function searchMusicalEventsInCity(city) {
+//   const url = new URL("https://serpapi.com/search");
+//   const params = new URLSearchParams({
+//     engine: "google_events",
+//     api_key: "",
+//     q: `musical concert events in ${city}`,
+//     google_domain: "google.com",
+//     location: city,
+//     num: 80,
+//   });
+
+//   url.search = params.toString();
+
+//   try {
+//     const response = await fetch(url.toString());
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch search results");
+//     }
+//     const searchData = await response.json();
+//     return searchData;
+//   } catch (error) {
+//     console.error("Error searching events:", error);
+//     throw error;
+//   }
+// }
+
+async function searchSportEventsInCity(city) {
   const url = new URL("https://serpapi.com/search");
   const params = new URLSearchParams({
     engine: "google_events",
-    api_key: "SERP-API-KEY",
+    api_key: "SERPAPI_KEY",
     q: `sport events in ${city}`,
     google_domain: "google.com",
     location: city,
@@ -448,11 +511,160 @@ async function searchEventsInCity(city) {
   }
 }
 
+async function openAISportEventsRecommendation(searchResponse, weatherData) {
+  try {
+    openai.apiKey = "OPENAI_API_KEY";
+    gptResponse = [];
+    let count = 0;
+    let addedAddresses = [];
+    let difference = 0.0;
+    for (let event of searchResponse.events_results) {
+      // console.log(addedAddresses);
+      if (addedAddresses.includes(event.address[0])) {
+        difference += 0.001;
+      }
+      message = [
+        {
+          role: "system",
+          content:
+            "You are a weather thoughtful event recommending bot recommending me 5 events only saying Yes or No.",
+        },
+        {
+          role: "user",
+          content:
+            "Would you recommend me this sport event: " +
+            event.title +
+            " at " +
+            event.address +
+            " with description: " +
+            event.description +
+            " ? based on the weather: " +
+            weatherData.weather[0].main +
+            " return the only one word: Yes or No.",
+        },
+      ];
+      const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo-16k",
+        messages: message,
+        max_tokens: 30,
+        temperature: 0.5,
+        top_p: 1,
+      });
+      // console.log(completion.choices[0].message.content, message);
+      if (completion.choices[0].message.content.substring(0, 3) == "Yes") {
+        // console.log(event);
+        addedAddresses.push(event.address[0]);
+        let coordinates = await getCoordinates(event.address);
+        coordinates.latitude += difference;
+        resultArr.push({
+          type: "Sport",
+          title: event.title,
+          address: event.address,
+          date: event.date.when,
+          operating_hours: event.link,
+          description: event.description,
+          gps_coordinates: coordinates,
+        });
+        count++;
+      }
+      if (count == 3) {
+        break;
+      }
+    }
+
+    resultArr = [];
+    for (let event of gptResponse) {
+    }
+
+    while (count < 3) {
+      for (let event of searchResponse.events_results) {
+        addedAddresses.push(event.address[0]);
+        let coordinates = await getCoordinates(event.address);
+        coordinates.latitude += difference;
+        resultArr.push({
+          type: "Sport",
+          title: event.title,
+          address: event.address,
+          date: event.date.when,
+          operating_hours: event.link,
+          description: event.description,
+          gps_coordinates: coordinates,
+        });
+        count++;
+        if (count == 3) {
+          break;
+        }
+      }
+    }
+
+    return resultArr;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function getCoordinates(address) {
+  // fetching from google geocode api
+  const url = new URL("https://maps.googleapis.com/maps/api/geocode/json");
+  const params = new URLSearchParams({
+    address,
+    key: "GEOCODER_API_KEY",
+  });
+
+  url.search = params.toString();
+
+  try {
+    const response = await fetch(url.toString());
+    if (!response.ok) {
+      throw new Error("Failed to fetch search results");
+    }
+    const searchData = await response.json();
+    // console.log(searchData);
+    const gps_coordinates = {
+      latitude: searchData.results[0].geometry.location.lat,
+      longitude: searchData.results[0].geometry.location.lng,
+    };
+    return gps_coordinates;
+  } catch (error) {
+    console.error("Error searching events:", error);
+    throw error;
+  }
+}
+
+async function searchEventsInCity(type, latitude, longitude) {
+  const url = new URL("https://serpapi.com/search");
+  const params = new URLSearchParams({
+    engine: "google_maps",
+    api_key: "SERPAPI_KEY",
+    q: type,
+    type: "search",
+    ll: `@${latitude},${longitude},15z`,
+    num: 80,
+  });
+
+  url.search = params.toString();
+
+  try {
+    const response = await fetch(url.toString());
+    if (!response.ok) {
+      throw new Error("Failed to fetch search results");
+    }
+    const searchData = await response.json();
+    // console.log(searchData.local_results);
+    return searchData.local_results;
+  } catch (error) {
+    console.error("Error searching events:", error);
+    throw error;
+  }
+}
+
 async function openAIEventRecommendation(searchResponse, weatherData) {
   try {
-    openai.apiKey = "OPENAI-API-KEY";
+    // console.log("HERE");
+    openai.apiKey = "OPENAI_API_KEY";
     gptResponse = [];
-    for (let event of searchResponse.events_results) {
+    let count = 0;
+    for (let event of searchResponse) {
       message = [
         {
           role: "system",
@@ -466,9 +678,118 @@ async function openAIEventRecommendation(searchResponse, weatherData) {
             event.title +
             " at " +
             event.address +
-            " on " +
-            event.date +
             " with description: " +
+            event.description +
+            " ? based on the weather: " +
+            weatherData.weather[0].main +
+            " return the only one word: Yes or No.",
+        },
+      ];
+      const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo-16k",
+        messages: message,
+        max_tokens: 30,
+        temperature: 0.5,
+        top_p: 1,
+      });
+      // console.log(completion.choices[0].message.content, message);
+      if (completion.choices[0].message.content.substring(0, 3) == "Yes") {
+        gptResponse.push(event);
+        count++;
+      }
+      if (count == 3) {
+        break;
+      }
+    }
+
+    resultArr = [];
+    for (let event of gptResponse) {
+      let operatingHoursString = "";
+
+      for (const day in event.operating_hours) {
+        operatingHoursString += `${
+          day.charAt(0).toUpperCase() + day.slice(1)
+        }: ${event.operating_hours[day]}\n`;
+      }
+
+      if (operatingHoursString == "") {
+        operatingHoursString =
+          "Sunday: 7 AM-11 PM Monday: 7 AM-11 PM Tuesday: 7 AM-11 PM Wednesday: 7 AM-11 PM Thursday: 7 AM-11 PM Friday: 7 AM-11 PM Saturday: 7 AM-11 PM";
+      }
+
+      // console.log(event);
+      resultArr.push({
+        type: "Music",
+        title: event.title,
+        address: event.address,
+        date: event.hours,
+        operating_hours: operatingHoursString,
+        description: event.description,
+        gps_coordinates: event.gps_coordinates,
+      });
+    }
+
+    while (count < 3) {
+      for (let event of searchResponse) {
+        let operatingHoursString = "";
+
+        for (const day in event.operating_hours) {
+          operatingHoursString += `${
+            day.charAt(0).toUpperCase() + day.slice(1)
+          }: ${event.operating_hours[day]}\n`;
+        }
+
+        if (operatingHoursString == "") {
+          operatingHoursString =
+            "Sunday: 7 AM-11 PM Monday: 7 AM-11 PM Tuesday: 7 AM-11 PM Wednesday: 7 AM-11 PM Thursday: 7 AM-11 PM Friday: 7 AM-11 PM Saturday: 7 AM-11 PM";
+        }
+
+        resultArr.push({
+          type: "Music",
+          title: event.title,
+          address: event.address,
+          date: event.hours,
+          operating_hours: operatingHoursString,
+          description: event.description,
+          gps_coordinates: event.gps_coordinates,
+        });
+        count++;
+        if (count == 3) {
+          break;
+        }
+      }
+    }
+
+    return resultArr;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function openAIRestaurantRecommendation(searchResponse, weatherData) {
+  try {
+    openai.apiKey = "OPENAI_API_KEY";
+    gptResponse = [];
+    let count = 0;
+    for (let event of searchResponse) {
+      message = [
+        {
+          role: "system",
+          content:
+            "You are a weather thoughtful event recommending bot recommending me 5 events only saying Yes or No.",
+        },
+        {
+          role: "user",
+          content:
+            "Would you recommend me this restaurant: " +
+            event.title +
+            " at " +
+            event.address +
+            " with today's store timings " +
+            event.hours +
+            " right now the time is " +
+            new Date().toLocaleTimeString() +
+            " the restaurant description: " +
             event.description +
             " ? heavily based on the weather: " +
             weatherData.weather[0].main +
@@ -482,20 +803,61 @@ async function openAIEventRecommendation(searchResponse, weatherData) {
         temperature: 0.5,
         top_p: 1,
       });
-      console.log(completion.choices[0].message.content, message);
+      // console.log(completion.choices[0].message.content, message);
       if (completion.choices[0].message.content.substring(0, 3) == "Yes") {
         gptResponse.push(event);
+        count++;
+      }
+      if (count == 3) {
+        break;
       }
     }
 
     resultArr = [];
     for (let event of gptResponse) {
+      let operatingHoursString = "";
+
+      for (const day in event.operating_hours) {
+        operatingHoursString += `${
+          day.charAt(0).toUpperCase() + day.slice(1)
+        }: ${event.operating_hours[day]}\n`;
+      }
+
       resultArr.push({
+        type: "restaurant",
         title: event.title,
         address: event.address,
-        date: event.date,
+        date: event.hours,
+        operating_hours: operatingHoursString,
         description: event.description,
+        gps_coordinates: event.gps_coordinates,
       });
+    }
+
+    while (count < 3) {
+      for (let event of searchResponse) {
+        let operatingHoursString = "";
+
+        for (const day in event.operating_hours) {
+          operatingHoursString += `${
+            day.charAt(0).toUpperCase() + day.slice(1)
+          }: ${event.operating_hours[day]}\n`;
+        }
+
+        resultArr.push({
+          type: "restaurant",
+          title: event.title,
+          address: event.address,
+          date: event.hours,
+          operating_hours: operatingHoursString,
+          description: event.description,
+          gps_coordinates: event.gps_coordinates,
+        });
+        count++;
+        if (count == 3) {
+          break;
+        }
+      }
     }
 
     return resultArr;
