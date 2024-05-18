@@ -1,5 +1,3 @@
-// write some readme
-
 ## ILTechHub
 
 ILTechHub is a social network for students, faculty, staff, and alumni of Illinois Tech. It is a platform for sharing ideas, projects, and events. It is a place to connect with others, find collaborators, and build a community. ILTechHub offers advanced features such as AI Autocomplete for posts and comments, AI Recommendations for users to plan social gathering, and an advanced search engine to find content. It is built using the React frontend and NodeJS backend. Uses Elasticsearch for search queries and Google Maps to show events.
